@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import game.door.bean.Game;
 
-@WebServlet("/hello")
+@WebServlet("/games")
 public class GameController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
