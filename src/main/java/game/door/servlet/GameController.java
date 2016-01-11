@@ -12,7 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import game.door.bean.Game;
 
-@WebServlet("/games")
+@WebServlet(urlPatterns="/games/*")
 public class GameController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -20,8 +20,7 @@ public class GameController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		Game game = new Game(1, "Game01", "PLAY");
-		
+		Game game = new Game(1, "Game01", "PLAY");		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.writeValue(resp.getOutputStream(), game);
 		
