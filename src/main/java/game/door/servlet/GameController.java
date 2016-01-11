@@ -10,24 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import game.door.bean.Message;
+import game.door.bean.Game;
 
 @WebServlet("/hello")
-public class Hello extends HttpServlet {
+public class GameController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		Message helloMessage = new Message();
-		
-		helloMessage.setId(1);
-		helloMessage.setName("Pokpitch");
-		helloMessage.setDescription("First Servlet");
+		Game game = new Game(1, "Game01", "PLAY");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		mapper.writeValue(resp.getOutputStream(), helloMessage);
+		mapper.writeValue(resp.getOutputStream(), game);
 		
 	}
 
